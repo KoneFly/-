@@ -1,0 +1,45 @@
+# K230矩形检测系统依赖
+
+## 硬件要求
+# - K230开发板
+# - 摄像头模块 (MIPI CSI接口)
+# - LCD显示屏 (800x480, ST7701驱动)
+# - 电容触摸屏
+# - 激光指示器
+# - 串口连接线
+
+## 软件依赖 (K230平台内置)
+# 以下模块为K230开发板内置，无需额外安装
+
+# 系统核心模块
+import time
+import os
+import math
+import struct
+
+# K230专用媒体模块
+from media.sensor import *      # 摄像头控制
+from media.display import *     # 显示控制
+from media.media import *       # 媒体管理
+
+# K230硬件接口模块
+from machine import UART        # 串口通信
+from machine import Pin         # GPIO控制
+from machine import FPIOA       # 引脚功能配置
+from machine import TOUCH       # 触摸屏控制
+
+# K230计算机视觉模块
+import cv_lite                  # 轻量级OpenCV
+
+## 配置文件
+# config/detection_config.py   # 检测参数配置
+
+## 开发环境建议
+# - CanMV IDE (推荐)
+# - 串口调试工具
+# - MicroSD卡 (Class 10, 16GB+)
+
+## 可选扩展
+# - 网络模块 (如需远程控制)
+# - 存储模块 (如需数据记录)
+# - 其他传感器模块
